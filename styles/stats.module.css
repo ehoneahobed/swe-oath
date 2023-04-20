@@ -1,0 +1,81 @@
+
+.stats {
+    background-color: #f8f8f8;
+    padding: 80px 0;
+    
+  }
+  
+  .stats_header{
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .stats_heading{
+    font-size: 2.5rem;
+  font-weight: 700;
+  }
+
+  .stats_subheading {
+    font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  }
+
+  .stats_container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  .stat {
+    flex-basis: 30%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .stat_icon {
+    font-size: 38px;
+    color: #00a5a5;
+    /* margin-bottom: 20px; */
+  }
+  
+  .stat_number {
+    font-size: 86px;
+    font-weight: bold;
+    /* margin-bottom: 10px; */
+  }
+  
+  .stat_text {
+    font-size: 18px;
+    color: #00a5a5;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+  
+
+  .cta_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  .cta_button {
+    background-color: #00a5a5;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cta_button:hover {
+    background-color: #007575;
+  }
+  

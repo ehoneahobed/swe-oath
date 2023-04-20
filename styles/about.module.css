@@ -1,0 +1,55 @@
+.about {
+  max-width: 800px;
+  margin: 3rem auto;
+}
+
+.about_title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about_subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.about_content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.about_content_image {
+  width: 50%;
+  flex-grow: 1;
+}
+
+.about_content_image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.about_content_text {
+  width: 50%;
+  flex-grow: 1;
+}
+
+.about_content_text h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.about_content_text p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 4rem;
+}
