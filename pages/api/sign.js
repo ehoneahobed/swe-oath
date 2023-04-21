@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         const signature = new Oath({ fullName, email, country });
         await signature.save();
         console.log(`New signature created: ${signature}`);
-        res.status(201).json(signature);
+        res.status(201).json({ status: "success", message: "You have successfully signed the oath", data: signature});
       } catch (error) {
         console.error(`Error creating new signature: ${error}`);
         res.status(500).json({ error: "Server error" });
@@ -42,16 +42,16 @@ export default async function handler(req, res) {
         }
       } else if (query.analytics) {
         try {
-          const totalSignatures = await Oath.countDocuments();
-          const uniqueCountries = await Oath.distinct("country", {
+          const signatureCount = await Oath.countDocuments();
+          const countryCount = await Oath.distinct("country", {
             country: { $exists: true },
           });
-          console.log(
-            `Analytics data generated: total signatures = ${totalSignatures}, unique countries = ${uniqueCountries.length}`
-          );
+          // console.log(
+          //   `Analytics data generated: total signatures = ${signatureCount}, unique countries = ${countryCount.length}`
+          // );
           res.json({
-            totalSignatures,
-            uniqueCountries: uniqueCountries.length,
+            signatureCount: String(signatureCount),
+            countryCount: String(countryCount.length),
           });
         } catch (error) {
           console.error(`Error generating analytics data: ${error}`);

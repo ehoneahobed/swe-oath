@@ -1,17 +1,43 @@
 import React, { useState } from "react";
 import styles from "../styles/OathForm.module.css";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
 
-const OathForm = ({ onSigned }) => {
+const OathForm = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
+  // const [message, setMessage] = useState("");
 
-  const handleSubmit = (event) => {
+  const router = useRouter();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSigned(fullName, email, country);
-    setFullName("");
-    setEmail("");
-    setCountry("");
+    
+    try {
+      const response = await axios.post("/api/sign", {
+        fullName,
+        email,
+        country,
+      });
+      
+      if (response.status === 201) {
+        toast.success('Signature created successfully!');
+        router.push('/success');
+      }
+
+      setFullName("");
+      setEmail("");
+      setCountry("");
+
+
+
+    } catch (error) {
+      // setMessage(`Error creating signature: ${error.message}`);
+      toast.error('Failed to create signature. Please try again later.');
+    }
   };
 
   return (
@@ -55,6 +81,8 @@ const OathForm = ({ onSigned }) => {
           <button type="submit" className={styles.button}>
             Sign Oath
           </button>
+          {/* {message && <p>{message}</p>} */}
+          <ToastContainer />
         </form>
       </section>
     </div>
